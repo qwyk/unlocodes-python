@@ -137,3 +137,6 @@ dmypy.json
 
 # ISO 3166 is required to run.
 !iso3166.csv
+
+# Mac crap
+.DS_Store

@@ -4,7 +4,7 @@
 >
 >   ~Every software developer at some point
 
-Extracts UN Locodes from the unece.org webpages and allows to parse the raw data to a convenient database format as used by Qwyk.
+This isn't a package, just two scripts that extract UN Locodes from the unece.org webpages and allows to parse the raw data to a convenient database format as used by Qwyk.
 
 
 ## How to use
@@ -19,4 +19,6 @@ Extracts UN Locodes from the unece.org webpages and allows to parse the raw data
 
 3.  `python convert_to_database.py INPUT_FILENAME OUTPUT_FILENAME`
 
-    *  Use `-tz` or `--timezones` to try to append timezones. This will significantly increase the processing time.
+    *  Use `-tz` or `--timezones` to try to append timezones based on lat/lng. This will significantly increase the processing time (+1hr).
+
+N.B.: Tested on macOs / Linux, not on Windows.
