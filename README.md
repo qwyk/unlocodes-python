@@ -1,12 +1,22 @@
 # WIP:unlocodes-python
 
+>   It's not pretty but it works... kind of
+>
+>   ~Every software developer at some point
+
+Extracts UN Locodes from the unece.org webpages and allows to parse the raw data to a convenient database format as used by Qwyk.
+
+
+## How to use
+
 1.  `pip install -r requirements.txt`
-2.  `python extract_from_website.py`
+2.  `python extract_from_website.py OUTPUT_FILENAME`
 
-    Connection might be reset from time to time, when it happens set
-    ```python
-    48: append = True
-    49: start_from = 'AE' # Country where to restart
-    ```
+    *  use `--append=AE` where `AE` is a two letter ISO codes to start appending from that country.
 
-3.  `python convert_to_database.py`
+    *  use `--only=AA,BB` where `AA,BB` is a comma seeperated list of two letter ISO code to only extract those countries
+
+
+3.  `python convert_to_database.py INPUT_FILENAME OUTPUT_FILENAME`
+
+    *  Use `-tz` or `--timezones` to try to append timezones. This will significantly increase the processing time.
