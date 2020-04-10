@@ -134,3 +134,6 @@ dmypy.json
 
 # VSCode
 .vscode/**/*
+
+# ISO 3166 is required to run.
+!iso3166.csv
