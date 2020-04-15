@@ -76,7 +76,7 @@ def convertRow(data, tzFinder):
         "is_borderxing": '1' if 'B' in data['function'] else '',
         "latitude_dms": lat,
         "longitude_dms": lng,
-        "latitude_dev": latdec,
+        "latitude_dec": latdec,
         "longitude_dec": lngdec,
         "timezone": timezone
     }
