@@ -55,32 +55,32 @@ def convertRow(data, tzFinder):
             timezone = tzFinder.timezone_at(lat=latdec, lng=lngdec)
         except:
             pass
-
-    return {
-        "locode": data['locode'],
-        "iata": data['iata'],
-        "name": data['name'],
-        "display_name": ', '.join([data['name'], data['subdivision']]) if data['subdivision'] != '' else data['name'],
-        "name_wo_diacritics": data['name_without_diacritics'],
-        "display_name_wo_diacritics": ', '.join([data['name_without_diacritics'], data['subdivision']]) if data['subdivision'] != '' else data['name_without_diacritics'],
-        "subdivision": data['subdivision'],
-        "country_code": data['country_code'],
-        "country_name": lookupCountryName(data['country_code']),
-        "is_port": '1' if '1' in data['function'] else '',
-        "is_rail_terminal": '1' if '2' in data['function']  else '',
-        "is_road_terminal": '1' if '3' in data['function']  else '',
-        "is_airport": '1' if '4' in data['function'] else '',
-        "is_postal_exchange": '1' if '5' in data['function'] else '',
-        "is_icd": '1' if '6' in data['function'] else '',
-        "is_fixed_transport": '1' if '7' in data['function'] else '',
-        "is_borderxing": '1' if 'B' in data['function'] else '',
-        "latitude_dms": lat,
-        "longitude_dms": lng,
-        "latitude_dec": latdec,
-        "longitude_dec": lngdec,
-        "timezone": timezone
-    }
-
+    if len(data['locode'] == '5':
+        return {
+            "locode": data['locode'],
+            "iata": data['iata'],
+            "name": data['name'],
+            "display_name": ', '.join([data['name'], data['subdivision']]) if data['subdivision'] != '' else data['name'],
+            "name_wo_diacritics": data['name_without_diacritics'],
+            "display_name_wo_diacritics": ', '.join([data['name_without_diacritics'], data['subdivision']]) if data['subdivision'] != '' else data['name_without_diacritics'],
+            "subdivision": data['subdivision'],
+            "country_code": data['country_code'],
+            "country_name": lookupCountryName(data['country_code']),
+            "is_port": '1' if '1' in data['function'] else '',
+            "is_rail_terminal": '1' if '2' in data['function']  else '',
+            "is_road_terminal": '1' if '3' in data['function']  else '',
+            "is_airport": '1' if '4' in data['function'] else '',
+            "is_postal_exchange": '1' if '5' in data['function'] else '',
+            "is_icd": '1' if '6' in data['function'] else '',
+            "is_fixed_transport": '1' if '7' in data['function'] else '',
+            "is_borderxing": '1' if 'B' in data['function'] else '',
+            "latitude_dms": lat,
+            "longitude_dms": lng,
+            "latitude_dec": latdec,
+            "longitude_dec": lngdec,
+            "timezone": timezone
+        }
+    return None
 
 def parseArguments():
     parser = argparse.ArgumentParser()
@@ -112,7 +112,8 @@ if __name__ == '__main__':
                     writer = csv.DictWriter(file, fieldnames = output.keys())
                     writer.writeheader()
                     index = False
-                writer.writerow(output)
+                if output:
+                    writer.writerow(output)
         except KeyboardInterrupt:
             print('stopped')
             exit()

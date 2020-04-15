@@ -140,3 +140,6 @@ dmypy.json
 
 # Mac crap
 .DS_Store
+
+
+load_mongo.py

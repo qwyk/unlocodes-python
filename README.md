@@ -22,3 +22,9 @@ This isn't a package, just two scripts that extract UN Locodes from the unece.or
     *  Use `-tz` or `--timezones` to try to append timezones based on lat/lng. This will significantly increase the processing time (+1hr).
 
 N.B.: Tested on macOs / Linux, not on Windows.
+
+
+## Extras
+resolve_chinese_ports.py tries to resolve the lat/lng and timezone by removing the ` Pt` portion from their name and matching them against entries in the list where name-` Pt` and locality and country match. For example Shanghai Pt is resolved by Shanghai
+
+geocode.py tries to fill lat lng and timezone based on the google geocoding api. Google will charge for this api so this can get expensive and take several hours.
